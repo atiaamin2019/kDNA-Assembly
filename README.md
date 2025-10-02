@@ -102,8 +102,9 @@ done
 # Step 6: Final clustering of circularized minicircles
 cat *_circular.fasta > all_circular_minicircles.fasta
 cd-hit-est -i all_circular_minicircles.fasta -o minicircle_MSCs.fasta -c 0.95 -n 10
-
+```
 ### 📌 Option 2: Hybrid Assembly (ONT + Illumina)
+```bash
 # Step 1: Extract unmapped reads from nuclear genome
 # ONT reads
 minimap2 -ax map-ont nuclear.fasta ONT.fastq | samtools view -b -f 4 - > unmapped_ONT.bam
@@ -124,10 +125,12 @@ python scripts/restart_with_csb1.py --input unicycler_output/assembly.fasta --cs
 
 # Step 5: Cluster final minicircles
 cd-hit-est -i restarted_minicircles.fasta -o minicircle_MSCs.fasta -c 0.95 -n 10
-
+```
 ## 🧬 gRNA Annotation Pipeline
+```bash
 # Step 1: Transcript assembly from RNA-seq (T-Aligner)
 taligner -i RNAseq.bam -o transcripts.fasta
 
 # Step 2: Annotate gRNAs using minicircle sequences
 taligner annotate -r transcripts.fasta -q minicircle_MSCs.fasta -o gRNA_annotations.tsv
+```
