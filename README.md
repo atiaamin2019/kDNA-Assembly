@@ -53,14 +53,6 @@ This pipeline performs **de novo assembly and annotation of minicircle DNA** fro
 - **Hybrid assembly** (ONT + Illumina)
 - **gRNA annotation** using RNA-seq and transcript alignment
 
-## 📁 Folder Structure
-minicircle_pipeline/
-├── long_read_only/         # Long-read-only assembly workflow
-├── hybrid_assembly/        # Hybrid ONT + Illumina workflow
-├── scripts/                # Custom Python scripts (CSB1 rotation, clustering filters, etc.)
-├── gRNA_annotation/        # gRNA annotation using T-Aligner
-└── results/                # Output FASTA, clusters, trees, annotations
-
 
 ---
 
